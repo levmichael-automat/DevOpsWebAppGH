@@ -1,0 +1,19 @@
+{
+  "name": "devops-webapp-project",
+  "source": {
+    "type": "CODECOMMIT",
+    "location": "https://git-codecommit.eu-west-1.amazonaws.com/v1/repos/DevOpsWebApp"
+  },
+  "artifacts": {
+    "type": "S3",
+    "location": "cicd-workshop-eu-west-1-553686865554",
+    "packaging": "ZIP",
+    "name": "WebAppOutputArtifact.zip"
+  },
+  "environment": {
+    "type": "LINUX_CONTAINER",
+    "image": "aws/codebuild/java:openjdk-8",
+    "computeType": "BUILD_GENERAL1_SMALL"
+  },
+  "serviceRole": "arn:aws:iam::553686865554:role/DevopsWorkshop-roles-BuildTrustRole-1PZG83OVXTWYS"
+}

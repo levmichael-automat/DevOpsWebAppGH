@@ -1,0 +1,12 @@
+version: '2'
+services:
+  ecsdemo-javawebapp:
+    image: javawebapp/latest
+    ports:
+      - "8080:8080"
+    logging:
+      driver: awslogs
+      options: 
+        awslogs-group: ecsdemo-javawebapp
+        awslogs-region: ${AWS_DEFAULT_REGION}
+        awslogs-stream-prefix: ecsdemo-javawebapp

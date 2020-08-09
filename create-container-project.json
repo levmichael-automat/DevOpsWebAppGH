@@ -1,0 +1,40 @@
+{
+  "name": "container-webapp-project",
+  "source": {
+    "type": "S3",
+    "location": "cicd-workshop-eu-west-1-553686865554/WebAppOutputArtifact.zip",
+    "buildspec": "buildspec_docker.yml"
+  },
+  "artifacts": {
+    "type": "NO_ARTIFACTS"
+  },
+  "environment": {
+    "type": "LINUX_CONTAINER",
+    "image": "aws/codebuild/standard:2.0",
+    "environmentVariables": [
+      {
+        "name": "AWS_DEFAULT_REGION",
+        "value": "eu-west-1",
+        "type": "PLAINTEXT"
+      },
+      {
+        "name": "AWS_ACCOUNT_ID",
+        "value": "553686865554",
+        "type": "PLAINTEXT"
+      },
+      {
+        "name": "IMAGE_REPO_NAME",
+        "value": "javawebappdemo",
+        "type": "PLAINTEXT"
+      },
+      {
+        "name": "IMAGE_TAG",
+        "value": "latest",
+        "type": "PLAINTEXT"
+      }
+    ],
+    "computeType": "BUILD_GENERAL1_SMALL",
+    "privilegedMode": true
+  },
+  "serviceRole": "arn:aws:iam::553686865554:role/DevopsWorkshop-roles-BuildTrustRole-1PZG83OVXTWYS"
+}

@@ -1,0 +1,16 @@
+version: 1
+task_definition:
+  task_execution_role: arn:aws:iam::553686865554:role/ecs-demo-setup-ECSTaskExecutionRole-VBC3XA5K7CPU
+  ecs_network_mode: awsvpc
+  task_size:
+    mem_limit: 0.5GB
+    cpu_limit: 256
+run_params:
+  network_configuration:
+    awsvpc_configuration:
+      subnets:
+        - "subnet-074c009f2c2bcdfc8"
+        - "subnet-0e6b1ff3d7fe7eb40"
+      security_groups:
+        - "sg-00500fb0a15f6b0f0"
+      assign_public_ip: DISABLED
